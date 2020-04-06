@@ -1,0 +1,36 @@
+﻿@model _06April2020_2.Models.FormUpload
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<h4>ProfilePicture</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form enctype="multipart/form-data" method="post" asp-action="UploadFile">
+            <dl>
+                <dt>
+                    <label asp-for="@Model.myform"></label>
+
+                </dt>
+                <dd>
+                    <input asp-for="@Model.myform" type="file" />
+                </dd>
+
+            </dl>
+            <input type="submit" value="Upload Image" class="btn btn-dark" />
+        </form>
+    </div>
+</div>
+
+<br /><br />
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
